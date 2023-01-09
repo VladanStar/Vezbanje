@@ -7,7 +7,22 @@
 function renderWeather(weather) {
   let resultsContainer = document.getElementById("weather-result");
   // create h2 for name
+  let city = document.createElement('h2');
+  city.textContent = weather.name;
+  resultsContainer.append(city);
+  // create p for humidity, wind, dwscription, temp
+
+  let temp = document.createElement("p");
+  temp.textContent = "Temp: " + weather.main.temp + "F";
+  resultsContainer.append(temp)
   
+  let humidity =  document.createElement("p");
+  humidity.textContent = "Humidity: " + weather.main.humidity;
+  resultsContainer.append(humidity);
+
+  let wind = document.createElement("p");
+  wind.textContent = "wind: " + weather.main.wind;
+  resultsContainer.append(wind);
 }
 
 // Fetch weather data for city
