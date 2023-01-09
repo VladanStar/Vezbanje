@@ -5,12 +5,12 @@
 //   .then((data) => console.log(data));
 
 function renderWeather(weather) {
-  
+  let query = document.getElementsByClassName('city').value;
   console.log(weather)
   let resultsContainer = document.getElementById("weather-result");
   // create h2 for name
   let city = document.createElement('h2');
-  city.textContent = weather.name;
+  city.textContent = weather.city.name;
   resultsContainer.append(city);
   // create p for humidity, wind, dwscription, temp
 
@@ -23,18 +23,29 @@ function renderWeather(weather) {
   resultsContainer.append(humidity);
 
   let wind = document.createElement("p");
-  wind.textContent = "Clouds: " + weather.list[0].weather[0].main
+  wind.textContent = "Clouds: " + weather.list[0].weather[0].main;
   resultsContainer.append(wind);
 
-  details.append("")
+  var weatherDetails = weather.list[0].weather[0].id;
+  if(weatherDetails &&  weatherDetails.description){
+    let descriptions= document.createElement("p");
+    descriptions.textContent = weatherDetails.descriptions;
+    resultsContainer.append(descriptions);  
+  }
+
+  // details.append("")
 }
 
 // Fetch weather data for city
 function fetchWeather(query){
-  let url = "https://api.openweathermap.org/data/2.5/forecast/daily?q=Kragujevac&mode=json&appid=1b1d0ad1ab386b48e8311d1e61b27554";
+  let url = "https://api.openweathermap.org/data/2.5/forecast/daily?q="+ query + "&mode=json&appid=1b1d0ad1ab386b48e8311d1e61b27554";
 
    fetch(url)
  .then((response) => response.json())
   .then((data) => renderWeather(data))
 }
-fetchWeather();
+let query = document.getElementsByClassName('city');
+
+var value = query.value;
+var text = query.options[query.selectedIndex].text
+fetchWeather(query);
