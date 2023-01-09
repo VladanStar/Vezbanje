@@ -5,6 +5,7 @@
 //   .then((data) => console.log(data));
 
 function renderWeather(weather) {
+  console.log(weather)
   let resultsContainer = document.getElementById("weather-result");
   // create h2 for name
   let city = document.createElement('h2');
@@ -21,8 +22,10 @@ function renderWeather(weather) {
   resultsContainer.append(humidity);
 
   let wind = document.createElement("p");
-  wind.textContent = "wind: " + weather.main.wind;
+  wind.textContent = "wind: " + weather.wind.speed + "mph" + weather.wind.deg + "°";
   resultsContainer.append(wind);
+
+  details.append("")
 }
 
 // Fetch weather data for city
@@ -31,6 +34,6 @@ function fetchWeather(query){
 
    fetch(url)
  .then((response) => response.json())
-  .then((data) => console.log(data.list));
+  .then((data) => renderWeather(data))
 }
 fetchWeather();
