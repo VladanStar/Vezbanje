@@ -14,11 +14,11 @@ function renderWeather(weather) {
   // create p for humidity, wind, dwscription, temp
 
   let temp = document.createElement("p");
-  temp.textContent = "Temp: " + weather.main.temp + "F";
+  temp.textContent = "Temp: " + weather.list[0].temp.day + "F";
   resultsContainer.append(temp)
   
   let humidity =  document.createElement("p");
-  humidity.textContent = "Humidity: " + weather.main.humidity;
+  humidity.textContent = "Humidity: " + weather.list[0].humidity;
   resultsContainer.append(humidity);
 
   let wind = document.createElement("p");
