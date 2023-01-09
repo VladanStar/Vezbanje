@@ -4,7 +4,9 @@
 // .then((response) => response.json())
 //   .then((data) => console.log(data));
 
-function renderWeather() {
+function renderWeather(weather) {
+  let resultsContainer = document.getElementById("weather-result");
+  // create h2 for name
   
 }
 
