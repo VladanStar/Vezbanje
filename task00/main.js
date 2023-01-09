@@ -5,6 +5,7 @@
 //   .then((data) => console.log(data));
 
 function renderWeather(weather) {
+  
   console.log(weather)
   let resultsContainer = document.getElementById("weather-result");
   // create h2 for name
@@ -22,7 +23,7 @@ function renderWeather(weather) {
   resultsContainer.append(humidity);
 
   let wind = document.createElement("p");
-  wind.textContent = "wind: " + weather.wind.speed + "mph" + weather.wind.deg + "°";
+  wind.textContent = "Clouds: " + weather.list[0].weather[0].main
   resultsContainer.append(wind);
 
   details.append("")
