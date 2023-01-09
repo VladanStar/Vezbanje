@@ -3,6 +3,7 @@
 // fetch("https://api.openweathermap.org/data/2.5/forecast/daily?q=Jagodina&units=imperial&mode=json&appid=1b1d0ad1ab386b48e8311d1e61b27554")
 // .then((response) => response.json())
 //   .then((data) => console.log(data));
+// var e= document.getElementById("city").value;
 
 function renderWeather(weather) {
   // let query = document.getElementsByClassName("city").value;
@@ -32,23 +33,17 @@ function renderWeather(weather) {
     descriptions.textContent = weatherDetails.descriptions;
     resultsContainer.append(descriptions);
   }
-
-  // details.append("")
 }
 
 // Fetch weather data for city
 function fetchWeather(query) {
+  query = query.options[query.selectedIndex].text;
   let url =
     "https://api.openweathermap.org/data/2.5/forecast/daily?q=" +
-    text +
+    query +
     "&mode=json&appid=1b1d0ad1ab386b48e8311d1e61b27554";
 
   fetch(url)
     .then((response) => response.json())
     .then((data) => renderWeather(data));
 }
-let query = document.getElementById("city");
-
-// var value = query.value;
-var text = query.options[query.selectedIndex].text;
-fetchWeather("text");

@@ -12,11 +12,11 @@
     <h1>Weather Api Demo</h1>
 
     <label for="city">Choose a city:</label>
-    <select id="city">
-      <option value="1">Kragujevac</option>
-      <option value="2">Cacak</option>
-      <option value="3" selected="selected">Beograd</option>
-      <option value="4">Nis</option>
+    <select id="city" onChange="fetchWeather(this)">
+      <option value="Kragujevac">Kragujevac</option>
+      <option value="Cacak">Cacak</option>
+      <option value="Beograd" selected="selected">Beograd</option>
+      <option value="Nis">Nis</option>
     </select>
 
     <div id="weather-result"></div>
