@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.card {
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+}
+text1 {
+    font-size: 13px;
+    color: #cbcbcb;
+}
+.info {
+    line-height: 13px;
+}
+.cost span {
+    color: #285738;
+    font-weight: bold;
+    font-size: 16px;
+}
+.button-color{
+    background: #285738;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+}
+ul {
+    display: inline-flex;
+    overflow: auto;
+}
+ul >li{
+    display: inline-block;
+    padding: 10px 20px;
+}
